@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/2eb8bd0a18.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Opinie Klientów - Huddle</title>
+  </head>
+  <body>
+    <header>
+      <a href="index.html">
+        <img src="images/logo.svg" class="logo" alt="Huddle logo" />
+      </a>
+      <nav id="main-nav">
+        <ul>
+          <li><a href="about.html">O nas</a></li>
+          <li><a href="features.html">Funkcje i korzyści</a></li>
+          <li><a href="testimonials.html">Opinie klientów</a></li>
+          <li><a href="gallery.html">Galeria</a></li>
+          <li><a href="contact.html">Kontakt</a></li>
+        </ul>
+      </nav>
+      <button id="hamburger-btn" class="hamburger" aria-label="Otwórz menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </header>
+
+    <main id="main-testimonials">
+      <section id="testimonials" class="page__sections">
+        <h2>Co mówią nasi klienci</h2>
+
+        <div class="testimonial-slider-wrapper">
+          <div class="testimonial-slider">
+            <div class="testimonial-track">
+              <div class="testimonial">
+                <img
+                  src="images/MarekP.png"
+                  alt="Zdjęcie klienta"
+                  class="testimonial-avatar"
+                />
+                <div class="testimonial-content">
+                  <h3>Marek Poręba</h3>
+                  <p class="testimonial-company">CEO, Firma QWERTY</p>
+                  <p>
+                    "Niesamowite narzędzie, które zmieniło naszą komunikację."
+                  </p>
+                </div>
+              </div>
+
+              <div class="testimonial">
+                <img
+                  src="images/GrzegorzB.png"
+                  alt="Zdjęcie klienta"
+                  class="testimonial-avatar"
+                />
+                <div class="testimonial-content">
+                  <h3>Grzegorz Bubaszko</h3>
+                  <p class="testimonial-company">
+                    Marketing Manager, Startup WERKT
+                  </p>
+                  <p>
+                    "Analityka w Huddle jest prosta i niezwykle potężna.
+                    Polecam!"
+                  </p>
+                </div>
+              </div>
+
+              <div class="testimonial">
+                <img
+                  src="images/KatarzynaW.png"
+                  alt="Zdjęcie klientki"
+                  class="testimonial-avatar"
+                />
+                <div class="testimonial-content">
+                  <h3>Katarzyna Wójcik</h3>
+                  <p class="testimonial-company">
+                    Creative Director, ArtFlow Agency
+                  </p>
+                  <p>
+                    "Platforma idealna dla zespołów kreatywnych. Wymiana
+                    pomysłów nigdy nie była łatwiejsza."
+                  </p>
+                </div>
+              </div>
+
+              <div class="testimonial">
+                <img
+                  src="images/PiotrZ.png"
+                  alt="Zdjęcie klienta"
+                  class="testimonial-avatar"
+                />
+                <div class="testimonial-content">
+                  <h3>Piotr Zieliński</h3>
+                  <p class="testimonial-company">
+                    Koordynator, Fundacja 'EkoInicjatywa'
+                  </p>
+                  <p>
+                    "Zbudowaliśmy zaangażowaną społeczność wokół naszych celów.
+                    Dziękujemy!"
+                  </p>
+                </div>
+              </div>
+
+              <div class="testimonial">
+                <img
+                  src="images/EwaM.png"
+                  alt="Zdjęcie klientki"
+                  class="testimonial-avatar"
+                />
+                <div class="testimonial-content">
+                  <h3>Ewa Malinowska</h3>
+                  <p class="testimonial-company">
+                    Project Manager, InnovateTech
+                  </p>
+                  <p>
+                    "Zarządzanie projektami w Huddle jest przejrzyste i
+                    efektywne."
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-cta hidden-on-load">
+          <h3>Gotowy, by do nas dołączyć?</h3>
+          <a href="contact.html" class="btn">Wypróbuj za darmo</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; <span id="year"></span> Huddle. Wszelkie prawa zastrzeżone.</p>
+      <p>
+        <ul class="list__links">
+          <li>
+            <a href="https://www.facebook.com/" class="footer__links facebook"
+              ><i class="fa-brands fa-facebook-f"></i
+            ></a>
+          </li>
+          <li>
+            <a href="https://x.com/" class="footer__links twitter"
+              ><i class="fa-brands fa-twitter"></i
+            ></a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/" class="footer__links instagram"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+          </li>
+        </ul>
+      </p>
+    </footer>
+    <script>
+      const testimonialSlider = document.querySelector(".testimonial-slider");
+      if (testimonialSlider) {
+        const track = testimonialSlider.querySelector(".testimonial-track");
+        const slides = Array.from(track.children);
+        let currentSlide = 0;
+        let slideInterval;
+
+        const updateCarousel = () => {
+          slides.forEach((slide, index) => {
+            slide.classList.remove("active-slide");
+
+            let offset = index - currentSlide;
+            if (offset < -Math.floor(slides.length / 2))
+              offset += slides.length;
+            if (offset > Math.floor(slides.length / 2)) offset -= slides.length;
+
+            const horizontalOffset = offset * 95;
+            const depthOffset = 1 - Math.abs(offset) * 0.2;
+
+            slide.style.transform = `translateX(${horizontalOffset}%) scale(${depthOffset})`;
+            slide.style.opacity = depthOffset;
+            slide.style.zIndex = slides.length - Math.abs(offset);
+          });
+
+          if (slides[currentSlide]) {
+            slides[currentSlide].classList.add("active-slide");
+          }
+        };
+
+        const nextSlide = () => {
+          currentSlide = (currentSlide + 1) % slides.length;
+          updateCarousel();
+        };
+
+        const startSlideShow = () => {
+          clearInterval(slideInterval);
+          slideInterval = setInterval(nextSlide, 4000);
+        };
+
+        testimonialSlider.addEventListener("mouseenter", () =>
+          clearInterval(slideInterval)
+        );
+        testimonialSlider.addEventListener("mouseleave", () =>
+          startSlideShow()
+        );
+
+        if (slides.length > 0) {
+          updateCarousel();
+          startSlideShow();
+        }
+      }
+    </script>
+    <script src="main.js" defer></script>
+  </body>
+</html>

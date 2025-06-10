@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kontakt - Huddle</title>
+    <script
+      src="https://kit.fontawesome.com/2eb8bd0a18.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <a href="index.html">
+        <img src="images/logo.svg" class="logo" alt="Huddle logo" />
+      </a>
+      <nav id="main-nav">
+        <ul>
+          <li><a href="about.html">O nas</a></li>
+          <li><a href="features.html">Funkcje i korzyści</a></li>
+          <li><a href="testimonials.html">Opinie klientów</a></li>
+          <li><a href="gallery.html">Galeria</a></li>
+          <li><a href="contact.html">Kontakt</a></li>
+        </ul>
+      </nav>
+      <button id="hamburger-btn" class="hamburger" aria-label="Otwórz menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </header>
+
+    <main>
+      <section class="contact-container">
+        <div class="contact-info">
+          <h2>Skontaktuj się z nami</h2>
+          <p>
+            <i class="fas fa-map-marker-alt"></i> Jana Pawła 8, Gdańsk, Polska
+          </p>
+          <p><i class="fas fa-phone"></i> +48 123 456 789</p>
+          <p><i class="fas fa-envelope"></i> info@huddle.com</p>
+        </div>
+        <div class="contact-form">
+          <p id="message-status"></p>
+          <form id="contactForm">
+            <input type="text" name="name" placeholder="Twoje imię" required />
+            <input
+              type="email"
+              name="email"
+              placeholder="Twój e-mail"
+              required
+            />
+            <textarea
+              name="message"
+              placeholder="Twoja wiadomość"
+              required
+            ></textarea>
+            <button type="submit" class="btn">Wyślij wiadomość</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; <span id="year"></span> Huddle. Wszelkie prawa zastrzeżone.</p>
+      <p>
+        <ul class="list__links">
+          <li>
+            <a href="https://www.facebook.com/" class="footer__links facebook"
+              ><i class="fa-brands fa-facebook-f"></i
+            ></a>
+          </li>
+          <li>
+            <a href="https://x.com/" class="footer__links twitter"
+              ><i class="fa-brands fa-twitter"></i
+            ></a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/" class="footer__links instagram"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+          </li>
+        </ul>
+      </p>
+    </footer>
+
+    <script>
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const name = this.name.value.trim();
+          const email = this.email.value.trim();
+          const message = this.message.value.trim();
+          const timestamp = new Date().toLocaleString();
+
+          if (!name || !email || !message) {
+            document.getElementById("message-status").textContent =
+              "Wszystkie pola są wymagane.";
+            document.getElementById("message-status").style.color = "red";
+            return;
+          }
+
+          const content = `Imię: ${name}\nEmail: ${email}\nWiadomość: ${message}\nData: ${timestamp}\n--------------------------\n`;
+
+          const blob = new Blob([content], { type: "text/plain" });
+          const a = document.createElement("a");
+          a.href = URL.createObjectURL(blob);
+          a.download = "opinie.txt";
+          a.click();
+
+          document.getElementById("message-status").textContent =
+            "Dziękujemy za wiadomość! Pobierzemy plik z Twoją opinią.";
+          document.getElementById("message-status").style.color = "green";
+          this.reset();
+        });
+    </script>
+    <script src="main.js" defer></script>
+  </body>
+</html>

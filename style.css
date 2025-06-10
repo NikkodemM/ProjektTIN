@@ -1,0 +1,671 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@400;600&display=swap");
+
+:root {
+  --Violet: hsl(257, 40%, 49%);
+  --Soft-Magenta: hsl(300, 69%, 71%);
+  --clr-white: rgb(255, 255, 255);
+  --Soft-Magenta-hover-btn: rgb(255, 218, 241);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: var(--clr-white);
+  padding: 2% 9%;
+  width: 99vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--Violet);
+  font-family: "Poppins";
+  background-image: url(images/bg-desktop.svg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: all 0.5s ease-in-out;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10vh;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+nav a {
+  color: var(--clr-white);
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: color 0.3s ease-in-out;
+}
+
+nav a:hover {
+  color: var(--Soft-Magenta);
+}
+
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+}
+
+.main__text {
+  margin-left: 5%;
+}
+
+h1 {
+  font-size: 50px;
+  margin-bottom: 30px;
+}
+
+h2 {
+  font-size: 35px;
+}
+
+h3 {
+  font-size: 30px;
+}
+
+p {
+  font-style: normal;
+  font-family: "Open Sans";
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+footer {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.list__links {
+  position: relative;
+  left: 320px;
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.footer__links {
+  font-size: 1.2rem;
+  color: var(--clr-white);
+  border: 1px solid var(--clr-white);
+  padding: 7px 12px;
+  border-radius: 50%;
+  text-align: center;
+  transition: color, border 0.3s ease-in-out;
+}
+
+.footer__links:hover {
+  color: var(--Soft-Magenta);
+  border: 1px solid var(--Soft-Magenta);
+}
+
+/* About */
+
+#main-about ul li {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+#main-about ul li:last-child {
+  margin-bottom: 20px;
+}
+
+.team {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.team-member {
+  flex: 1 1 200px;
+  text-align: center;
+}
+
+.team-member img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.team-member h4 {
+  font-size: 30px;
+  color: var(--clr-white);
+}
+
+.team-member p {
+  font-size: 20px;
+  color: var(--clr-white);
+}
+
+#stock-ticker {
+  margin-top: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#stock-ticker h2,
+#stock-ticker h3 {
+  color: var(--clr-white);
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+#stock-ticker h3 {
+  font-size: 20px;
+}
+
+#stocks {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 8px;
+}
+
+#stocks th,
+#stocks td {
+  border: 1px solid var(--clr-white);
+  padding: 10px;
+  text-align: center;
+}
+
+#stocks th {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+#stocks td.up {
+  color: lightgreen;
+  font-weight: bold;
+}
+
+#stocks td.down {
+  color: #ff5555;
+  font-weight: bold;
+}
+#news ul {
+  list-style: disc;
+  padding-left: 20px;
+  color: var(--clr-white);
+}
+
+.hidden-on-load {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Features */
+.feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.feature img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
+}
+
+.feature h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.feature p {
+  font-size: 18px;
+}
+
+.benefits {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.benefits h3 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.benefits ul {
+  list-style-type: none;
+}
+
+.benefits li {
+  font-size: 18px;
+  margin-bottom: 8px;
+  padding-left: 30px;
+  position: relative;
+}
+
+.benefits li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--Soft-Magenta);
+}
+
+/* Testimonials */
+
+.testimonial {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.testimonial-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.testimonial-content {
+  flex: 1;
+}
+
+.testimonial h3 {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.testimonial-company {
+  font-size: 16px;
+  color: var(--Soft-Magenta);
+  margin-bottom: 10px;
+}
+
+.testimonial-rating {
+  color: var(--Soft-Magenta);
+  font-size: 20px;
+}
+
+.testimonial-cta {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.testimonial-cta h3 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.btn {
+  display: inline-block;
+  background-color: var(--Soft-Magenta);
+  color: var(--Violet);
+  padding: 15px 30px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: var(--Soft-Magenta-hover-btn);
+}
+
+/* Gallery */
+
+h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.gallery-container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.gallery-images {
+  display: flex;
+  transition: transform 0.3s ease;
+}
+
+.slide {
+  flex: 0 0 100%;
+  width: 100%;
+  position: relative;
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.image-description {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+.image-description p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.gallery-btn {
+  position: absolute;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(232, 130, 232, 0.3);
+  color: var(--clr-white);
+  border: none;
+  padding: 10px 15px;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+#prev-btn {
+  left: 10px;
+}
+
+#next-btn {
+  right: 10px;
+}
+
+.dots-container {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.dot {
+  height: 10px;
+  width: 10px;
+  background-color: #6b3468;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: var(--Soft-Magenta-hover-btn);
+}
+
+/* Contact */
+
+.contact-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.contact-info,
+.contact-form {
+  flex-basis: 48%;
+}
+
+.contact-info h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: var(--Soft-Magenta);
+}
+
+.contact-info p {
+  margin-bottom: 15px;
+  color: white;
+}
+
+.contact-info i {
+  margin-right: 10px;
+  color: var(--Soft-Magenta);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid var(--Soft-Magenta);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.contact-form textarea {
+  height: 150px;
+  resize: vertical;
+}
+
+.contact-form .btn {
+  background-color: var(--Soft-Magenta);
+  color: var(--Violet);
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form .btn:hover {
+  background-color: var(--Soft-Magenta-hover-btn);
+}
+
+/* ============================================== */
+/* ==== STYLE RESPONSYWNE (TABLET I TELEFON) ==== */
+/* ============================================== */
+
+.logo {
+  max-width: 150px;
+}
+
+.hamburger {
+  display: none;
+  background: none;
+  border: 2px solid var(--clr-white);
+  color: var(--clr-white);
+  border-radius: 5px;
+  padding: 8px 10px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 1001;
+  transition: all 0.2s ease-in-out;
+}
+.hamburger:hover {
+  background: var(--Soft-Magenta);
+  border-color: var(--Soft-Magenta);
+}
+
+/* ======================================================= */
+/* =============== STYLE DLA TABLETU ===================== */
+/* ======================================================= */
+
+@media (max-width: 1024px) {
+  body {
+    padding: 4% 5%;
+  }
+
+  h1 {
+    font-size: 38px;
+  }
+
+  h2 {
+    font-size: 30px;
+  }
+
+  p {
+    font-size: 18px;
+  }
+
+  .list__links {
+    position: static;
+    left: auto;
+    justify-content: center;
+    width: 100%;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+  }
+}
+
+/* ======================================================== */
+/* =============== STYLE DLA TELEFONU ===================== */
+/* ======================================================== */
+@media (max-width: 768px) {
+  .hero {
+    margin-top: 60px;
+  }
+  body {
+    background-image: url(images/bg-mobile.svg);
+    padding: 6% 8%;
+  }
+
+  header {
+    position: relative;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 70%;
+    height: 100vh;
+    background-color: var(--Violet);
+    z-index: 1000;
+    transform: translateX(100%);
+    transition: transform 0.4s ease-in-out;
+  }
+
+  nav.nav-active {
+    transform: translateX(0);
+  }
+
+  nav ul {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    gap: 30px;
+  }
+
+  nav a {
+    font-size: 1.5rem;
+  }
+
+  .hero,
+  .contact-container,
+  .team {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero img,
+  .main__text {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .team-member {
+    margin-bottom: 30px;
+  }
+
+  .testimonial {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .testimonial-avatar {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+}
+
+/* ======================================================= */
+/* ====== NOWA, ZAAWANSOWANA KARUZELA Z 3 OPINIAMI ====== */
+/* ======================================================= */
+
+.testimonial-slider-wrapper {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px;
+}
+
+.testimonial-slider {
+  position: relative;
+  width: 90%;
+  max-width: 1200px;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.testimonial-track {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.testimonial-slider .testimonial {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 50%;
+  max-width: 400px;
+  transform: scale(0.8);
+  opacity: 0.6;
+  z-index: 1;
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  padding: 30px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+}
+
+.testimonial-slider .testimonial.active-slide {
+  transform: scale(1);
+  opacity: 1;
+  z-index: 10;
+}
